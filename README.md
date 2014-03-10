@@ -1,9 +1,12 @@
 ch.py
 =====
-Distributed under the terms of the GNU GPL. 
+Non-Standard branch,
+this branch use library that is not in the standard library that get install together with python
 
-  An event-based library for connecting to one or more Chatango chat rooms. Has support 
-for several things including: messaging, message font, name colour, deleting, banning, recent 
+Distributed under the terms of the GNU GPL.
+
+  An event-based library for connecting to one or more Chatango chat rooms. Has support
+for several things including: messaging, message font, name colour, deleting, banning, recent
 history, two userlist modes, flagging, avoiding flood bans, and detecting flags.
 
 ----

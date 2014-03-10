@@ -26,20 +26,7 @@ import random
 import re
 import sys
 import select
-
-
-################################################################
-# Python 2 compatibility
-################################################################
-if sys.version_info[0] < 3:
-  class urllib:
-    parse = __import__("urllib")
-    request = __import__("urllib2")
-  input = raw_input
-  import codecs
-else:
-  import urllib.request
-  import urllib.parse
+import requests
 
 ################################################################
 # Constants
@@ -196,25 +183,25 @@ def _getAuth(name, password):
   @rtype: str
   @return: auid
   """
-  data = urllib.parse.urlencode({
+  data = {
     "user_id": name,
     "password": password,
     "storecookie": "on",
     "checkerrors": "yes"
-  }).encode()
+  }
   try:
-    resp = urllib.request.urlopen("http://chatango.com/login", data)
+    resp = requests.post("http://chatango.com/login", data)
     headers = resp.headers
   except Exception:
     return None
-  for header, value in headers.items():
-    if header.lower() == "set-cookie":
-      m = auth_re.search(value)
-      if m:
-        auth = m.group(1)
-        if auth == "":
-          return None
-        return auth
+  if "set-cookie" in headers:
+    value = headers["set-cookie"]
+    m = auth_re.search(value)
+    if m:
+      auth = m.group(1)
+      if auth == "":
+        return None
+      return auth
   return None
 
 ################################################################
