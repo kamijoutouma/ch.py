@@ -1,8 +1,9 @@
 ch.py
 =====
-Non-Standard Branch
+Non-Standard Branch, this branch use library that is not in the standard library that get install together with python
 
-this branch use library that is not in the standard library that get install together with python
+currently used non-standard modules:
+* requests
 
 ----
 Distributed under the terms of the GNU GPL.
