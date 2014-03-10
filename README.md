@@ -1,8 +1,10 @@
 ch.py
 =====
-Non-Standard branch,
+Non-Standard Branch
+
 this branch use library that is not in the standard library that get install together with python
 
+----
 Distributed under the terms of the GNU GPL.
 
   An event-based library for connecting to one or more Chatango chat rooms. Has support
